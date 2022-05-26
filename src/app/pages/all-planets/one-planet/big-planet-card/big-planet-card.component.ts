@@ -1,5 +1,18 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BigPlanetCard } from '../../../../shared/interfaces/planet.interface';
+
+interface BigPlanetCard {
+  climate: string;
+  created: string;
+  diameter: string;
+  edited: string;
+  gravity: string;
+  name: string;
+  orbital_period: string;
+  population: string;
+  rotation_period: string;
+  surface_water: string;
+  terrain: string;
+}
 
 @Component({
   selector: 'app-big-planet-card',

@@ -5,7 +5,17 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { SmallPlanetCard } from '../../../shared/interfaces/planet.interface';
+
+interface SmallPlanetCard {
+  name: string;
+  diameter: string;
+  gravity: string;
+  orbital_period: string;
+  rotation_period: string;
+  surface_water: string;
+  terrain: string;
+  climate: string;
+}
 
 @Component({
   selector: 'app-small-planet-card',
