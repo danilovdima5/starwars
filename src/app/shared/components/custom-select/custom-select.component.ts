@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  forwardRef,
   Input,
   OnChanges,
   OnDestroy,
@@ -14,6 +15,8 @@ import {
   FormControl,
   Validators,
   ValidationErrors,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -27,6 +30,18 @@ export interface SelectItem {
   templateUrl: './custom-select.component.html',
   styleUrls: ['./custom-select.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CustomSelectComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => CustomSelectComponent),
+      multi: true,
+    },
+  ],
 })
 export class CustomSelectComponent
   implements OnInit, OnChanges, OnDestroy, ControlValueAccessor, Validator
@@ -51,6 +66,11 @@ export class CustomSelectComponent
   onToggleDropdown(): void {
     this.showDropdown = !this.showDropdown;
     this.onTouched();
+  }
+
+  clear(): void {
+    this.formControl.reset();
+    this.showDropdown = false;
   }
 
   onToggleOption(key: string): void {
