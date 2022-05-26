@@ -2,7 +2,11 @@
   <h1 class="text-center mb-1-em">Planets list</h1>
   <ng-container *ngIf="items$ | async as planets">
     <div class="d-grid two-grid-columns gap-1-em">
-      <div *ngFor="let planet of planets; let i = index" [routerLink]="[i + 1]">
+      <div
+        *ngFor="let planet of planets; let i = index"
+        [routerLink]="[i + 1]"
+        class="cursor-pointer"
+      >
         <app-small-planet-card
           [name]="planet.name"
           [diameter]="planet.diameter"

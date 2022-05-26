@@ -1,4 +1,4 @@
-<div class="p-10p">
+<div class="p-10p d-flex flex-flow-column gap-1-em">
   <ng-container *ngIf="onePlanet.planet$ | async as planet">
     <app-big-planet-card
       [name]="planet.name"
@@ -21,6 +21,7 @@
       [isMultiple]="false"
       [isRequired]="false"
       formControlName="gender"
+      placeholder="Select a gender"
     ></app-custom-select>
   </ng-container>
 </div>

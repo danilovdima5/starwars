@@ -53,6 +53,7 @@ export class CustomSelectComponent
   @Input() isMultiple = false;
   @Input() defaultValue: string | null = null;
   @Input() readonly = false;
+  @Input() placeholder!: string;
 
   private valueChangeSub!: Subscription;
 

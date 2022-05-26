@@ -1,6 +1,6 @@
 <div class="select">
   <div class="select__value" (click)="!readonly && onToggleDropdown()">
-    {{ indexesToString(formControl.value) || "Select a value" }}
+    {{ indexesToString(formControl.value) || placeholder }}
   </div>
 
   <div class="select__dropdown" *ngIf="showDropdown">
