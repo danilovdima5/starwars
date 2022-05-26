@@ -15,7 +15,7 @@
     <span>Surface water: </span> {{ surface_water }}
   </li>
   <li *ngIf="terrain"><span>Terrain: </span> {{ terrain }}</li>
-  <li *ngIf="created"><span>Created: </span> {{ created }}</li>
-  <li *ngIf="edited"><span>Edited: </span> {{ edited }}</li>
+  <li *ngIf="created"><span>Created: </span> {{ created | date: "long" }}</li>
+  <li *ngIf="edited"><span>Edited: </span> {{ edited | date: "long" }}</li>
   <li *ngIf="population"><span>Population: </span> {{ population }}</li>
 </ul>

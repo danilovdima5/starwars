@@ -24,8 +24,24 @@
       placeholder="Select a gender"
     ></app-custom-select>
   </ng-container>
+  <h1 class="text-center mb-1-em">Residents list</h1>
+  <ng-container *ngIf="items$ | async as residents">
+    <div class="d-grid two-grid-columns gap-1-em" *ngIf="residents.length">
+      <div *ngFor="let resident of residents; let i = index">
+        <app-resident-card
+          [birth_year]="resident.birth_year"
+          [eye_color]="resident.eye_color"
+          [gender]="resident.gender"
+          [height]="resident.height"
+          [homeworld]="resident.homeworld"
+          [mass]="resident.mass"
+          [name]="resident.name"
+          [skin_color]="resident.skin_color"
+          [created]="resident.created"
+          [edited]="resident.edited"
+        ></app-resident-card>
+      </div>
+    </div>
+  </ng-container>
+  <app-loader *ngIf="isLoading"></app-loader>
 </div>
-
-<!-- <ul *ngIf="items$ | async as items$">
-  <li *ngIf="climate"><span>Climate: </span> {{ climate }}</li>
-</ul> -->
