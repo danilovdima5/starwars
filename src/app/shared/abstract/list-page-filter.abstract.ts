@@ -36,6 +36,9 @@ export abstract class OnePlanetComponentAbstract
     }
 
     this._isLoading = true;
+
+    // берём из сервиса текущую планету, берём оттуда массив резидентов и идём за каждым на сервер. take автоматически отписывает по результаты
+
     this.store
       .fetchList()
       .pipe(
@@ -55,6 +58,9 @@ export abstract class OnePlanetComponentAbstract
 
   filterList(filterParams: FilterParams): void {
     const result: Resident[] = [];
+
+    // создаётся массив, в который попадают только те резиденты, у которых значения по ключам совпадают (только если они не нулы в форме). при желании можно расширить или юзать в других местах
+
     this._allItems.forEach((item) => {
       for (const [key, value] of Object.entries(filterParams)) {
         if (!value) {
