@@ -1,1 +1,22 @@
-<h1>All planets</h1>
+<div class="p-10p">
+  <h1 class="text-center mb-1-em">Planets list</h1>
+  <ng-container *ngIf="items$ | async as planets">
+    <div class="d-grid two-grid-columns gap-1-em">
+      <div *ngFor="let planet of planets; let i = index" [routerLink]="[i + 1]">
+        <app-small-planet-card
+          [name]="planet.name"
+          [diameter]="planet.diameter"
+          [climate]="planet.climate"
+          [gravity]="planet.gravity"
+          [orbital_period]="planet.orbital_period"
+          [rotation_period]="planet.rotation_period"
+          [surface_water]="planet.surface_water"
+          [terrain]="planet.terrain"
+          [requestNewPlanets]="(i + 1) % itemsByFetch === 0"
+          (onLeaveEnd)="next()"
+        ></app-small-planet-card>
+      </div>
+    </div>
+  </ng-container>
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>
