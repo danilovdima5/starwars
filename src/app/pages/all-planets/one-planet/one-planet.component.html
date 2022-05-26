@@ -1,1 +1,30 @@
-<h1>One planet</h1>
+<div class="p-10p">
+  <ng-container *ngIf="onePlanet.planet$ | async as planet">
+    <app-big-planet-card
+      [name]="planet.name"
+      [climate]="planet.climate"
+      [created]="planet.created"
+      [diameter]="planet.diameter"
+      [edited]="planet.edited"
+      [gravity]="planet.gravity"
+      [orbital_period]="planet.orbital_period"
+      [population]="planet.population"
+      [rotation_period]="planet.rotation_period"
+      [surface_water]="planet.surface_water"
+      [terrain]="planet.terrain"
+    ></app-big-planet-card>
+  </ng-container>
+
+  <ng-container [formGroup]="filterForm">
+    <app-custom-select
+      [items]="onePlanetFilterItems"
+      [isMultiple]="false"
+      [isRequired]="false"
+      formControlName="gender"
+    ></app-custom-select>
+  </ng-container>
+</div>
+
+<!-- <ul *ngIf="items$ | async as items$">
+  <li *ngIf="climate"><span>Climate: </span> {{ climate }}</li>
+</ul> -->
