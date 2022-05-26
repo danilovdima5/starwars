@@ -1,0 +1,18 @@
+<h2 appObserver (onLeaveEnd)="leaveEnd()" class="text-center cursor-pointer">
+  {{ name }}
+</h2>
+<ul>
+  <li *ngIf="diameter"><span>Diameter: </span> {{ diameter }}</li>
+  <li *ngIf="gravity"><span>Gravity: </span> {{ gravity }}</li>
+  <li *ngIf="orbital_period">
+    <span>Orbital period: </span> {{ orbital_period }}
+  </li>
+  <li *ngIf="rotation_period">
+    <span>Rotation period: </span> {{ rotation_period }}
+  </li>
+  <li *ngIf="surface_water">
+    <span>Surface water: </span> {{ surface_water }}
+  </li>
+  <li *ngIf="terrain"><span>Terrain: </span> {{ terrain }}</li>
+  <li *ngIf="climate"><span>Climate: </span> {{ climate }}</li>
+</ul>
