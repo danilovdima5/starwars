@@ -1,0 +1,29 @@
+.select
+  position: relative
+  width: 100%
+  z-index: 1
+  cursor: pointer
+  height: 50px
+  &__value
+    width: 100%
+    padding: 8px
+    padding-left: 18px
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    background-color: #00e5ff
+    box-sizing: border-box
+  &__dropdown
+    background-color: #fff
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15)
+    width: 100%
+  &__options
+    margin: 0
+    padding: 0
+    list-style: none
+  &__option
+    padding: 1rem
+    &:hover
+      background-color: #f5f5f5
+      cursor: pointer
+      transition: 0.2s background-color ease-in-out
