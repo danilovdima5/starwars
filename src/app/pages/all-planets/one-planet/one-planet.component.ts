@@ -21,6 +21,7 @@ const onePlanetFilterItems: SelectItem[] = [
   },
 ];
 
+// получаем айдишник текущей планеты из урла. выглядит костыльно, но не придумал как лучше сделать
 const getIdFromUrl = () => {
   const hrefElements = window.location.href.split('/');
   return hrefElements[hrefElements.length - 1];
