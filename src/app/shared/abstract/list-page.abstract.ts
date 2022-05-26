@@ -3,8 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ListPageService } from '../services/list-page.service';
 
 @Directive()
-export abstract class ListPageAbstract<T> {
-  protected constructor(protected store: ListPageService<T>) {}
+export abstract class ListPageAbstract<T, Y> {
+  protected constructor(protected store: ListPageService<Y>) {}
 
   protected _items$ = new BehaviorSubject<T[]>([]);
 

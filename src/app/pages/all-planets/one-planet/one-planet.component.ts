@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ListPageWithFilter } from '../../../shared/abstract/list-page-filter.abstract';
+import { OnePlanetComponentAbstract } from '../../../shared/abstract/list-page-filter.abstract';
 import { SelectItem } from '../../../shared/components/custom-select/custom-select.component';
 import { Planet } from '../../../shared/interfaces/planet.interface';
 import { ListPageService } from '../../../shared/services/list-page.service';
@@ -21,16 +21,21 @@ const onePlanetFilterItems: SelectItem[] = [
   },
 ];
 
+const getIdFromUrl = () => {
+  const hrefElements = window.location.href.split('/');
+  return hrefElements[hrefElements.length - 1];
+};
+
 @Component({
-  selector: 'all-one-planet',
+  selector: 'app-one-planet',
   templateUrl: './one-planet.component.html',
   providers: [
-    { provide: URL_TOKEN, useValue: URLS.allPlanets },
+    { provide: URL_TOKEN, useValue: URLS.allPlanets + getIdFromUrl() },
     ListPageProvider,
     OnePlanetService,
   ],
 })
-export class OnePlanetComponent extends ListPageWithFilter<Planet> {
+export class OnePlanetComponent extends OnePlanetComponentAbstract {
   constructor(
     public override store: ListPageService<Planet>,
     public onePlanet: OnePlanetService,
@@ -38,6 +43,7 @@ export class OnePlanetComponent extends ListPageWithFilter<Planet> {
   ) {
     super(store);
     this.onePlanet.getPlanet(this.activatedRoute.snapshot.params['id']);
+    this.next();
   }
 
   onePlanetFilterItems = onePlanetFilterItems;

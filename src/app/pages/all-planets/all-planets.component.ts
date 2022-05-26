@@ -5,6 +5,7 @@ import { URLS } from '../../shared/utilities/urls';
 import { ListPageService } from '../../shared/services/list-page.service';
 import { Planet } from '../../shared/interfaces/planet.interface';
 import { ListPagePaginationsAbstract } from '../../shared/abstract/list-page-pagination.abstract';
+import { Pageable } from '../../shared/interfaces/pageable.interface';
 
 @Component({
   selector: 'app-all-planets',
@@ -15,7 +16,7 @@ import { ListPagePaginationsAbstract } from '../../shared/abstract/list-page-pag
   ],
 })
 export class AllPlanetsComponent extends ListPagePaginationsAbstract<Planet> {
-  constructor(public override store: ListPageService<Planet>) {
+  constructor(public override store: ListPageService<Pageable<Planet>>) {
     super(store);
     this.next();
   }

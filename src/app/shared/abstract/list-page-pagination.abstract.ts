@@ -1,12 +1,16 @@
 import { Directive } from '@angular/core';
+import { Pageable } from '../interfaces/pageable.interface';
 import { ListPageService } from '../services/list-page.service';
 import { ListPageAbstract } from './list-page.abstract';
 
 @Directive()
-export abstract class ListPagePaginationsAbstract<
-  T
-> extends ListPageAbstract<T> {
-  protected constructor(protected override store: ListPageService<T>) {
+export abstract class ListPagePaginationsAbstract<T> extends ListPageAbstract<
+  T,
+  Pageable<T>
+> {
+  protected constructor(
+    protected override store: ListPageService<Pageable<T>>
+  ) {
     super(store);
   }
 
